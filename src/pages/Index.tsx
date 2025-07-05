@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -21,6 +22,7 @@ import Icon from "@/components/ui/icon";
 import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
+  const navigate = useNavigate();
   const [isOrderOpen, setIsOrderOpen] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [showTeam, setShowTeam] = useState(false);
@@ -102,6 +104,9 @@ const Index = () => {
               </Button>
               <Button variant="ghost" onClick={() => setShowTeam(true)}>
                 О нас
+              </Button>
+              <Button variant="ghost" onClick={() => navigate("/game")}>
+                🎮 Игра
               </Button>
               <Dialog open={isOrderOpen} onOpenChange={setIsOrderOpen}>
                 <DialogTrigger asChild>
